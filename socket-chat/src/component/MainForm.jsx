@@ -17,25 +17,27 @@ const MainForm = () => {
     }
 
     const validation = (name, room) => {
-        if(!data, name){
-            setError("please enter your name")
-            return false
+        if (!name) {
+          setError("please enter your name");
+          return false;
         }
-        if(!data, room){
-            setError("Please select room")
-            return false
+        if (!room) {
+          setError("Please select room");
+          return false;
         }
-        setError("")
-        return true
-    }
+        setError("");
+        return true;
+      };
 
     const handleSubmit = (e) => {
-        e.PreventDefault()
-        const isValid = validation()
-        if(isValid){
-
+        e.preventDefault();
+        const { name, room } = data;
+        const isValid = validation(name, room);
+        if (isValid) {
+          navigate(`/chat/${data.room}`, { state: data });
         }
-    }
+      };
+
     return(
         <div className="px-3 py-4 shadow bg-white text-dark border rounded row">
             <form onSubmit={handleSubmit}>

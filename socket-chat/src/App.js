@@ -9,8 +9,8 @@ function App() {
       <Router>
         <Routes>
           <Route index element={<MainForm/>}></Route>
-          <Route path='/chat/:roomName' element={<h1>chat room</h1>}></Route>
-          <Route path='*' element={<h1>error 404 not found!</h1>}></Route>
+          <Route path="/chat/:roomName" element={<h1>chat room</h1>}></Route>
+          <Route path="*" element={<h1>error 404 not found!</h1>}></Route>
         </Routes>
       </Router>
     </div>
