@@ -27,28 +27,31 @@ const ChatRoom = () => {
                 <h1 className="text-info mb-4">{data?.room} Chat Box</h1>
             </div>
             <div className="bg-light border rounded p-3 mb-4" style={{height:"450px", overflowY:"scroll"}}>
-                <div className="row justify-content-end pl-5">
                     {
-                        allMessages.map
+                        allMessages.map(msg => {
+                            return data.name === msg.name
+                            ?
+                            <div className="row justify-content-end pl-5">
+                                <div className="d-flex flex-column align-items-end m-2 shadow p-2  border rounded w-auto" style={{background: "#DFE9E8"}} >
+                                    <div>
+                                        <strong className="m-1">Leena</strong>
+                                        <small className="text-muted">2 min ago</small>
+                                    </div>
+                                    <h4 className="m-1">Hello there</h4>
+                                </div>   
+                            </div>
+                            :
+                            <div className="row justify-content-start">
+                                <div className="d-flex flex-column m-2 shadow p-2 bg-white border rounded w-auto">
+                                    <div>
+                                        <strong className="m-1">Rachu</strong>
+                                        <small className="text-muted">2 min ago</small>
+                                    </div>
+                                    <h4 className="m-1">Hello there</h4>
+                                </div>   
+                            </div>
+                        })
                     }
-                    <div className="d-flex flex-column align-items-end m-2 shadow p-2  border rounded w-auto" style={{background: "#DFE9E8"}} >
-                        <div>
-                            <strong className="m-1">Leena</strong>
-                            <small className="text-muted">2 min ago</small>
-                        </div>
-                        <h4 className="m-1">Hello there</h4>
-                    </div>   
-                </div>
-
-                <div className="row justify-content-start">
-                    <div className="d-flex flex-column m-2 shadow p-2 bg-white border rounded w-auto">
-                        <div>
-                            <strong className="m-1">Rachu</strong>
-                            <small className="text-muted">2 min ago</small>
-                        </div>
-                        <h4 className="m-1">Hello there</h4>
-                    </div>   
-                </div>
             </div>
             <div className="form-group d-flex">
                 <input type="text" className="form-control bg-light" name="message" onChange={handleChange} value="msg" placeholder="Type your message"/>
