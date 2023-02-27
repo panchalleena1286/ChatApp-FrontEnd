@@ -34,20 +34,20 @@ const ChatRoom = () => {
                             <div className="row justify-content-end pl-5">
                                 <div className="d-flex flex-column align-items-end m-2 shadow p-2  border rounded w-auto" style={{background: "#DFE9E8"}} >
                                     <div>
-                                        <strong className="m-1">Leena</strong>
-                                        <small className="text-muted">2 min ago</small>
+                                        <strong className="m-1">{msg.name}</strong>
+                                        <small className="text-muted">{msg.time}</small>
                                     </div>
-                                    <h4 className="m-1">Hello there</h4>
+                                    <h4 className="m-1">{msg.msg}</h4>
                                 </div>   
                             </div>
                             :
                             <div className="row justify-content-start">
                                 <div className="d-flex flex-column m-2 shadow p-2 bg-white border rounded w-auto">
                                     <div>
-                                        <strong className="m-1">Rachu</strong>
-                                        <small className="text-muted">2 min ago</small>
+                                        <strong className="m-1">{msg.name}</strong>
+                                        <small className="text-muted">{msg.time}</small>
                                     </div>
-                                    <h4 className="m-1">Hello there</h4>
+                                    <h4 className="m-1">{msg.msg}</h4>
                                 </div>   
                             </div>
                         })
