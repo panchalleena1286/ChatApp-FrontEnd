@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Moment from "react-moment";
 import { io } from "socket.io-client";
@@ -33,10 +33,16 @@ const ChatRoom = () => {
         if(socket){
         socket.on("getLatestMessage", newMessage => {
             setMessages([...allMessages, newMessage])
-           
+           setMsg("")
            })
         }
     }, [socket, allMessages])
+
+    useEffect(() => {
+        if (msgBoxRef.current) {
+            msgBoxRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [allMessages]);
     
 
     const handleChange = (e) => setMsg(e.target.value)
@@ -45,7 +51,7 @@ const ChatRoom = () => {
         if (msg) {
           const newMessage = { time: new Date(), msg, name: data.name };
           socket.emit("newMessage", { newMessage, room: data.room });
-          setMsg(""); // clear input field
+          
         }
       };
       
